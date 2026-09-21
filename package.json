@@ -1,0 +1,25 @@
+{
+  "name": "culones-bot",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Bot de Discord para Culones RPG",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "deploy": "node src/deploy-commands.js"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "dependencies": {
+    "@fontsource/noto-emoji": "^5.2.11",
+    "@napi-rs/canvas": "^0.1.51",
+    "@supabase/supabase-js": "^2.39.3",
+    "axios": "^1.7.2",
+    "discord.js": "^14.16.3"
+  },
+  "overrides": {
+    "undici": "6.27.0"
+  }
+}
