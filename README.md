@@ -168,13 +168,7 @@ src/
     └── ...renderizadores Canvas
 ```
 
-La migración compartida está en:
-
-```text
-sql/migration_021_discord_auth_and_forum.sql
-sql/migration_022_log_visibility.sql
-sql/migration_023_bot_config_panel.sql
-```
+El esquema compartido vive en el repositorio web (`Crpg/supabase/migrations`); este repositorio ya no incluye SQL propio.
 
 ## Variables de entorno
 
@@ -184,7 +178,7 @@ DISCORD_CLIENT_ID=
 DISCORD_GUILD_ID=
 SUPABASE_URL=
 SUPABASE_SERVICE_ROLE_KEY=
-SITE_URL=https://empity001.github.io/culones-rpg/
+SITE_URL=https://empity001.github.io/Crpg/
 GUIDE_JOB_POLL_MS=15000
 GUIDE_JOB_MAX_ATTEMPTS=5
 BOT_ALERT_CHANNEL_ID=
@@ -205,7 +199,7 @@ npm start
 
 `npm run deploy` registra todos los comandos en el servidor indicado por `DISCORD_GUILD_ID` y reemplaza el conjunto anterior. Tras actualizar a `bot-config-panel-02`, este paso retira `/ping`, `/estado` y los subcomandos anteriores de `/config`; quedan únicamente `/config`, `/buscar` y `/screenshot`.
 
-Antes de desplegar, ejecuta `sql/migration_023_bot_config_panel.sql` en Supabase. Añade el canal de alertas a la configuración persistente. Configurar Logs y Guías desde el panel requiere que el bot tenga **Gestionar roles**, porque Discord usa ese permiso para editar los overwrites, además de los permisos de canal indicados en el diagnóstico.
+Antes de desplegar, aplica las migraciones del repositorio web (`supabase db push` en Crpg): incluyen el canal de alertas de la configuración persistente. Configurar Logs y Guías desde el panel requiere que el bot tenga **Gestionar roles**, porque Discord usa ese permiso para editar los overwrites, además de los permisos de canal indicados en el diagnóstico.
 
 Después del primer despliegue abre `/config` y completa **Canales** y **Acceso** con sus selectores.
 
@@ -228,4 +222,4 @@ El bot solicita `Guilds` y `GuildMessages`. `GuildMessages` se usa únicamente p
 
 ### Visibilidad de Logs
 
-Ejecuta `sql/migration_022_log_visibility.sql`. Los anuncios nuevos mencionan `@everyone` usando la bandera silenciosa de Discord, y el watcher elimina de Discord los Logs despublicados.
+Los anuncios nuevos mencionan `@everyone` usando la bandera silenciosa de Discord, y el watcher elimina de Discord los Logs despublicados.

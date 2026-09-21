@@ -1,6 +1,6 @@
 // src/services/kits.js
 // Lee los kits recomendados desde Supabase para el comando /screenshot kits.
-// Misma tabla que usa la web (sql/migration_016_kits.sql): `kits`, con
+// Misma tabla que usa la web (Crpg/supabase/migrations): `kits`, con
 // RLS que solo deja ver filas `published = true` a la key anon — igual
 // que hace la web para usuarios no-admin, así que un simple select directo
 // alcanza (no hace falta pasar por el RPC list_kits, que además necesita

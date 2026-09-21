@@ -2,15 +2,9 @@
 
 Esta entrega sustituye los subcomandos administrativos por un único panel privado en `/config`. También mueve el diagnóstico y la recuperación al panel, y retira `/ping` y `/estado` como comandos separados.
 
-## 1. Aplicar la migración
+## 1. Base de datos
 
-Ejecuta en el SQL Editor de Supabase:
-
-```text
-sql/migration_023_bot_config_panel.sql
-```
-
-La migración añade `alert_channel_id` a `discord_guild_config`. No borra ni transforma la configuración existente.
+El esquema compartido vive en el repositorio web (`Crpg/supabase/migrations`) y ya incluye la columna `alert_channel_id` de `discord_guild_config`. Aplícalo desde ese repositorio con `supabase db push`.
 
 ## 2. Instalar y registrar comandos
 

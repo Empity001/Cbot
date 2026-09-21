@@ -32,7 +32,7 @@ export const config = {
     url: process.env.SUPABASE_URL,
     serviceRoleKey: process.env.SUPABASE_SERVICE_ROLE_KEY,
   },
-  siteUrl: (process.env.SITE_URL || 'https://empity001.github.io/culones-rpg/').replace(/\/+$/, ''),
+  siteUrl: (process.env.SITE_URL || 'https://empity001.github.io/Crpg/').replace(/\/+$/, ''),
   worker: {
     pollIntervalMs: positiveNumber(process.env.GUIDE_JOB_POLL_MS, 15000, 5000),
     maxJobAttempts: positiveNumber(process.env.GUIDE_JOB_MAX_ATTEMPTS, 5, 1),

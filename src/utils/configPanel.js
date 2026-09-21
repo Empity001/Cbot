@@ -322,7 +322,7 @@ async function selectedRole(interaction) {
 function readableError(error) {
   const message = String(error?.message || error || 'No se pudo completar la acción.');
   if (/alert_channel_id|schema cache/i.test(message)) {
-    return 'Falta aplicar `sql/migration_023_bot_config_panel.sql` en Supabase antes de configurar el canal de alertas.';
+    return 'Falta la columna `alert_channel_id` en `discord_guild_config`: aplica las migraciones del repositorio web (Crpg) antes de configurar el canal de alertas.';
   }
   return error instanceof ConfigurationActionError ? message : 'No se pudo completar la acción. Revisa los permisos del bot y vuelve a intentarlo.';
 }
