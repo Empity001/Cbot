@@ -25,7 +25,7 @@ function relevanceColor(relevance) {
 }
 
 function baseUrl(logId, tab = null, entry = null) {
-  let url = `${config.siteUrl}/index.html?log=${encodeURIComponent(logId)}`;
+  let url = `${config.siteUrl}/logs.html?log=${encodeURIComponent(logId)}`;
   if (tab) url += `&tab=${encodeURIComponent(tab)}`;
   if (entry) url += `&entry=${encodeURIComponent(entry)}`;
   return url;

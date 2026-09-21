@@ -102,7 +102,7 @@ export async function searchPublicContent(rawQuery) {
     kind: 'Log',
     title: log.title,
     description: log.description || 'Registro publicado.',
-    url: page('index.html', { log: log.id }),
+    url: page('logs.html', { log: log.id }),
     score: scoreName(log.title, query) + 6,
   });
   for (const [entryType, entries, tab] of [['Item de Log', logItems, 'items'], ['Mob de Log', logMobs, 'mobs']]) {
@@ -113,7 +113,7 @@ export async function searchPublicContent(rawQuery) {
         kind: entryType,
         title: entry.name,
         description: `Aparece en el Log “${parent.title}”.`,
-        url: page('index.html', { log: parent.id, tab, entry: entry.id }),
+        url: page('logs.html', { log: parent.id, tab, entry: entry.id }),
         score: scoreName(entry.name, query) + 5,
       });
     }
